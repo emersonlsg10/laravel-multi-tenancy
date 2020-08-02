@@ -110,7 +110,7 @@ dragula([document.getElementById("todo-task"), document.getElementById("inprogre
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/js/pages/kanban.init.js */"./resources/js/pages/kanban.init.js");
+module.exports = __webpack_require__(/*! /home/usuario/multi-tenancy/resources/js/pages/kanban.init.js */"./resources/js/pages/kanban.init.js");
 
 
 /***/ })

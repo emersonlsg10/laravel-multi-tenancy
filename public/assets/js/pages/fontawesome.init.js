@@ -111,7 +111,7 @@ jQuery.each(val.attributes.membership.free,function(k,iconBrand){console.log('ic
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/js/pages/fontawesome.init.js */"./resources/js/pages/fontawesome.init.js");
+module.exports = __webpack_require__(/*! /home/usuario/multi-tenancy/resources/js/pages/fontawesome.init.js */"./resources/js/pages/fontawesome.init.js");
 
 
 /***/ })

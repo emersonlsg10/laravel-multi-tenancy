@@ -250,7 +250,7 @@ function ($) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/js/pages/calendar.init.js */"./resources/js/pages/calendar.init.js");
+module.exports = __webpack_require__(/*! /home/usuario/multi-tenancy/resources/js/pages/calendar.init.js */"./resources/js/pages/calendar.init.js");
 
 
 /***/ })

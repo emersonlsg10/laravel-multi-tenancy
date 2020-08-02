@@ -765,13 +765,13 @@ chart.render();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/js/pages/apexcharts.init.js */"./resources/js/pages/apexcharts.init.js");
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/bootstrap-dark.scss */"./resources/scss/bootstrap-dark.scss");
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/icons.scss */"./resources/scss/icons.scss");
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/app-rtl.scss */"./resources/scss/app-rtl.scss");
-__webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/app.scss */"./resources/scss/app.scss");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/projeto-tenancy/admin/resources/scss/app-dark.scss */"./resources/scss/app-dark.scss");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/js/pages/apexcharts.init.js */"./resources/js/pages/apexcharts.init.js");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/bootstrap.scss */"./resources/scss/bootstrap.scss");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/bootstrap-dark.scss */"./resources/scss/bootstrap-dark.scss");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/icons.scss */"./resources/scss/icons.scss");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/app-rtl.scss */"./resources/scss/app-rtl.scss");
+__webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/app.scss */"./resources/scss/app.scss");
+module.exports = __webpack_require__(/*! /home/usuario/multi-tenancy/resources/scss/app-dark.scss */"./resources/scss/app-dark.scss");
 
 
 /***/ })
