@@ -11,8 +11,8 @@ File: Icons Css File
 
 @font-face {
   font-family: "Material Design Icons";
-  src: url("/fonts/materialdesignicons-webfont.eot?v=5.0.45");
-  src: url("/fonts/materialdesignicons-webfont.eot?#iefix&v=5.0.45") format("embedded-opentype"), url("/fonts/materialdesignicons-webfont.woff2?v=5.0.45") format("woff2"), url("/fonts/materialdesignicons-webfont.woff?v=5.0.45") format("woff"), url("/fonts/materialdesignicons-webfont.ttf?v=5.0.45") format("truetype");
+  src: url("/assets/fonts/materialdesignicons-webfont.eot?v=5.0.45");
+  src: url("/assets/fonts/materialdesignicons-webfont.eot?#iefix&v=5.0.45") format("embedded-opentype"), url("/assets/fonts/materialdesignicons-webfont.woff2?v=5.0.45") format("woff2"), url("/assets/fonts/materialdesignicons-webfont.woff?v=5.0.45") format("woff"), url("/assets/fonts/materialdesignicons-webfont.ttf?v=5.0.45") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -27342,9 +27342,9 @@ readers do not read off random characters that represent icons */
 
 @font-face {
   font-family: "remixicon";
-  src: url("/fonts/remixicon.eot?t=1587359857360");
+  src: url("/assets/fonts/remixicon.eot?t=1587359857360");
   /* IE9*/
-  src: url("/fonts/remixicon.eot?t=1587359857360#iefix") format("embedded-opentype"), url("/fonts/remixicon.woff2?t=1587359857360") format("woff2"), url("/fonts/remixicon.woff?t=1587359857360") format("woff"), url("/fonts/remixicon.ttf?t=1587359857360") format("truetype"), url("/fonts/remixicon.svg?t=1587359857360#remixicon") format("svg");
+  src: url("/assets/fonts/remixicon.eot?t=1587359857360#iefix") format("embedded-opentype"), url("/assets/fonts/remixicon.woff2?t=1587359857360") format("woff2"), url("/assets/fonts/remixicon.woff?t=1587359857360") format("woff"), url("/assets/fonts/remixicon.ttf?t=1587359857360") format("truetype"), url("/assets/fonts/remixicon.svg?t=1587359857360#remixicon") format("svg");
   /* iOS 4.1- */
   font-display: swap;
 }
