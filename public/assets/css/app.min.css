@@ -3599,8 +3599,34 @@ div.dt-button-info h2 {
   background-position: center;
 }
 
+.login-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bolder;
+}
+.login-menu > div {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.item-menu-registrar {
+  background-color: #3748CB;
+  color: #fff;
+  text-align: center;
+  border-radius: 30px;
+  width: 150px;
+}
+
+.home-btn {
+  display: none !important;
+}
+
 .authentication-bg .bg-overlay {
-  background-color: #292626;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 991px) {
