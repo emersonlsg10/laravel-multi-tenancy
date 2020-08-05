@@ -17,10 +17,27 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('/index');
 // });
 
-Auth::routes();
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('pages-404', 'NazoxController@index');
-Route::get('/', 'HomeController@root');
-Route::get('{any}', 'HomeController@index');
+Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
+    Auth::routes();
 
-Route::get('index/{locale}', 'LocaleController@lang');
+    Route::group(['middleware' => 'auth:system'], function(){
+        Route::get('home', function () {
+            return view('system.home');
+        });
+    });
+});
+
+Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
+    Auth::routes();
+
+    Route::group(['middleware' => 'auth:tenant'], function(){
+        Route::name('home')->get('home', function () {
+            return view('tenant.home');
+        });
+        Route::resource('categories', 'CategoryController');
+    });
+});

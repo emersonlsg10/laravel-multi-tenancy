@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Company;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+
+use App\Tenant\TenantFacade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        TenantFacade::loadConnections();
     }
 }
