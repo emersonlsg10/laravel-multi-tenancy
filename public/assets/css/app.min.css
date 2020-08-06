@@ -3603,6 +3603,33 @@ div.dt-button-info h2 {
   background-color:rgba(0, 0, 0, 0.2);
 }
 
+.home-btn {
+  display: none !important;
+}
+
+.login-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.login-menu > div {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.item-menu-registrar {
+  background-color: #3748CB;
+  border-radius: 25px;
+  width: 150px;
+  text-align: center;
+  color: #fff;
+}
+
 @media (max-width: 991px) {
   .authentication-bg {
     display: none;
