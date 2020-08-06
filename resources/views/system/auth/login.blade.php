@@ -1,73 +1,105 @@
-@extends('layouts.system')
+@extends('layouts-original.master-without-nav')
+@section('title')
+Login
+@endsection
+@section('body')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<body class="auth-body-bg">
+    @endsection
+    @section('content')
+    <div class="home-btn d-none d-sm-block">
+        <a href="{{url('index')}}"><i class="mdi mdi-home-variant h2 text-white"></i></a>
+    </div>
+    <div>
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-lg-4">
+                    <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
+                        <div class="w-100">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-9">
+                                    <div>
+                                        <div class="text-center">
+                                            <div>
+                                                <a href="{{url('index')}}" class="logo"><img src="{{ URL::asset('/assets/images/logo-aisten.png')}}" height="50" alt="logo"></a>
+                                            </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('system.login') }}">
-                        @csrf
+                                            <h4 class="font-size-18 mt-4">Bem Vindo de volta !</h4>
+                                            <p class="text-muted">Sign in to continue to Nazox.</p>
+                                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                        <div class="p-2 mt-5">
+                                            <form method="POST" action="{{ route('system.login') }}">
+                                                @csrf
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                <div class="form-group auth-form-group-custom mb-4">
+                                                    <i class="ri-user-2-line auti-custom-input-icon"></i>
+                                                    <label for="email">{{ __('E-Mail Address') }}</label>
+                                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Email">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                                                <div class="form-group auth-form-group-custom mb-4">
+                                                    <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                                                    <label for="password">{{ __('Password') }}</label>
+                                                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="password" placeholder="Enter password">
+                                                    @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
+                                                </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                <div class="mt-4 text-center">
+                                                    <button class="btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Log In') }}</button>
+                                                </div>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                                                <div class="mt-4 text-center">
+                                                    @if (Route::has('password.request'))
+                                                    <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> {{ __('Forgot your password?') }}</a>
+                                                    @endif
+                                                    <br />
+                                                    <h2 class="text-politicas-uso">POLÍTICAS DE USO</h2>
+                                                </div>
+                                            </form>
+                                        </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                        <!-- <div class="mt-5 text-center">
+                                            <p>Don't have an account ? <a href="{{url('register')}}" class="font-weight-medium text-primary"> Register </a> </p>
+                                            <p>
+                                                <script>
+                                                    document.write(new Date().getFullYear())
+                                                </script>© Nazox. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign
+                                            </p>
+                                        </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('system.password.request'))
-                                    <a class="btn btn-link" href="{{ route('system.password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="authentication-bg">
+                        <div class="bg-overlay">
+                            <div class="login-menu">
+                                <div>SOBRE</div>
+                                <div>BENEFÍCIOS</div>
+                                <div>CONTATO</div>
+                                <div class="item-menu-registrar">REGISTRAR</div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
