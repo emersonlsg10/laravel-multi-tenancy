@@ -35,7 +35,7 @@ File: Main Css File
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url("/fonts/inter-light.woff2?v=3.13") format("woff2"), url("/fonts/inter-light.woff?v=3.13") format("woff");
+  src: url("/assets/fonts/inter-light.woff2?v=3.13") format("woff2"), url("/assets/fonts/inter-light.woff?v=3.13") format("woff");
 }
 
 @font-face {
@@ -43,7 +43,7 @@ File: Main Css File
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/inter-regular.woff2?v=3.13") format("woff2"), url("/fonts/inter-regular.woff?v=3.13") format("woff");
+  src: url("/assets/fonts/inter-regular.woff2?v=3.13") format("woff2"), url("/assets/fonts/inter-regular.woff?v=3.13") format("woff");
 }
 
 @font-face {
@@ -51,7 +51,7 @@ File: Main Css File
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("/fonts/inter-medium.woff2?v=3.13") format("woff2"), url("/fonts/inter-medium.woff?v=3.13") format("woff");
+  src: url("/assets/fonts/inter-medium.woff2?v=3.13") format("woff2"), url("/assets/fonts/inter-medium.woff?v=3.13") format("woff");
 }
 
 @font-face {
@@ -59,7 +59,7 @@ File: Main Css File
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/inter-bold.woff2?v=3.13") format("woff2"), url("/fonts/iter-bold.woff?v=3.13") format("woff");
+  src: url("/assets/fonts/inter-bold.woff2?v=3.13") format("woff2"), url("/assets/fonts/iter-bold.woff?v=3.13") format("woff");
 }
 
 #page-topbar {
@@ -3124,8 +3124,8 @@ div.dt-button-info h2 {
   font-family: "summernote";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/summernote.eot");
-  src: url("/fonts/summernote.eot?#iefix") format("embedded-opentype"), url("/fonts/summernote.woff?") format("woff"), url("/fonts/summernote.ttf?") format("truetype");
+  src: url("/assets/fonts/summernote.eot");
+  src: url("/assets/fonts/summernote.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/summernote.woff?") format("woff"), url("/fonts/summernote.ttf?") format("truetype");
 }
 
 .note-editor.note-frame {
@@ -3601,6 +3601,39 @@ div.dt-button-info h2 {
 
 .authentication-bg .bg-overlay {
   background-color:rgba(0, 0, 0, 0.2);
+}
+
+.home-btn {
+  display: none !important;
+}
+
+.login-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.login-menu > div {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.item-menu-registrar {
+  background-color: #3748CB;
+  border-radius: 25px;
+  width: 150px;
+  text-align: center;
+  color: #fff;
+}
+
+.text-politicas-uso {
+  font-size: 12px;
+  font-weight: bolder;
+  color: black;
 }
 
 @media (max-width: 991px) {
@@ -4557,4 +4590,3 @@ div.dt-button-info h2 {
     bottom: 38px;
   }
 }
-

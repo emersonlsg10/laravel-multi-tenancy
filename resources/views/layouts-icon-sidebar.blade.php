@@ -1,38 +1,22 @@
-@extends('layouts-original.master')
-@section('title') Dashboard @endsection
-@section('css')
-<!-- DataTables -->
-<link href="{{ URL::asset('/assets/libs/jquery-vectormap/jquery-vectormap.min.css')}}" rel="stylesheet" type="text/css" />
-<!-- Responsive datatable examples -->
-<link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
+@extends('layouts.master')
+@section('title')
+Icon Sidebar
 @endsection
+@section('css')
+    <!-- jquery.vectormap css -->
+    <link href="{{ URL::asset('/assets/libs/jquery-vectormap/jquery-vectormap.min.css')}}" rel="stylesheet" type="text/css" />
 
-@auth('system')
-<!-- <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::guard('system')->user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('system.logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('system.logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li> -->
-
+    <!-- DataTables -->
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
+@endsection
+@section('body')
+<body data-sidebar="dark" data-keep-enlarged="true" class="vertical-collpsed">
+@endsection
 @section('content')
-@component('components.breadcrumb')
-@slot('title') Systema @endslot
-@slot('li_1') Nazox @endslot
-@slot('li_2') Dashboard @endslot
+@component('components.breadcrumb')                
+    @slot('title') Icon Sidebar @endslot
+    @slot('li_1') Layouts @endslot
+    @slot('li_2') Icon Sidebar @endslot
 @endcomponent
 <div class="row">
     <div class="col-xl-8">
@@ -236,9 +220,9 @@
                                 <h5 class="mb-0">$11,235</h5>
                             </div>
                         </div>
-
+                        
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -288,13 +272,11 @@
                                             </div>
                                         </div>
                                     </td>
-
+                                    
                                     <td>
                                         <h5 class="font-size-14 mb-0">Source 1</h5>
                                     </td>
-                                    <td>
-                                        <div id="spak-chart1"></div>
-                                    </td>
+                                    <td><div id="spak-chart1"></div></td>
                                     <td>
                                         <p class="text-muted mb-0">$ 2478</p>
                                     </td>
@@ -310,10 +292,8 @@
                                     <td>
                                         <h5 class="font-size-14 mb-0">Source 2</h5>
                                     </td>
-
-                                    <td>
-                                        <div id="spak-chart2"></div>
-                                    </td>
+                                    
+                                    <td><div id="spak-chart2"></div></td>
                                     <td>
                                         <p class="text-muted mb-0">$ 2625</p>
                                     </td>
@@ -329,9 +309,7 @@
                                     <td>
                                         <h5 class="font-size-14 mb-0">Source 3</h5>
                                     </td>
-                                    <td>
-                                        <div id="spak-chart3"></div>
-                                    </td>
+                                    <td><div id="spak-chart3"></div></td>
                                     <td>
                                         <p class="text-muted mb-0">$ 2856</p>
                                     </td>
@@ -380,7 +358,7 @@
                                 <div>
                                     <h5 class="font-size-13">28 Apr, 2020 <small class="text-muted">12:07 am</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Responded to need “Volunteer Activities”</p>
                                 </div>
@@ -396,7 +374,7 @@
                                 <div>
                                     <h5 class="font-size-13">21 Apr, 2020 <small class="text-muted">08:01 pm</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Added an interest “Volunteer Activities”</p>
                                 </div>
@@ -412,7 +390,7 @@
                                 <div>
                                     <h5 class="font-size-13">17 Apr, 2020 <small class="text-muted">09:23 am</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Joined the group “Boardsmanship Forum”</p>
                                 </div>
@@ -428,7 +406,7 @@
                                 <div>
                                     <h5 class="font-size-13">11 Apr, 2020 <small class="text-muted">05:10 pm</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Responded to need “In-Kind Opportunity”</p>
                                 </div>
@@ -444,7 +422,7 @@
                                 <div>
                                     <h5 class="font-size-13">07 Apr, 2020 <small class="text-muted">12:47 pm</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Created need “Volunteer Activities”</p>
                                 </div>
@@ -460,7 +438,7 @@
                                 <div>
                                     <h5 class="font-size-13">05 Apr, 2020 <small class="text-muted">03:09 pm</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Attending the event “Some New Event”</p>
                                 </div>
@@ -476,7 +454,7 @@
                                 <div>
                                     <h5 class="font-size-13">02 Apr, 2020 <small class="text-muted">12:07 am</small></h5>
                                 </div>
-
+                                
                                 <div>
                                     <p class="text-muted mb-0">Responded to need “In-Kind Opportunity”</p>
                                 </div>
@@ -516,12 +494,12 @@
                             <div class="clearfix py-2">
                                 <h5 class="float-right font-size-16 m-0">$ 2542</h5>
                                 <p class="text-muted mb-0 text-truncate">California :</p>
-
+                                
                             </div>
                             <div class="clearfix py-2">
                                 <h5 class="float-right font-size-16 m-0">$ 2245</h5>
                                 <p class="text-muted mb-0 text-truncate">Nevada :</p>
-
+                                
                             </div>
                         </div>
                     </div>
@@ -530,12 +508,12 @@
                             <div class="clearfix py-2">
                                 <h5 class="float-right font-size-16 m-0">$ 2156</h5>
                                 <p class="text-muted mb-0 text-truncate">Montana :</p>
-
+                                
                             </div>
                             <div class="clearfix py-2">
                                 <h5 class="float-right font-size-16 m-0">$ 1845</h5>
                                 <p class="text-muted mb-0 text-truncate">Texas :</p>
-
+                                
                             </div>
                         </div>
                     </div>
@@ -543,7 +521,7 @@
                 <div class="text-center mt-4">
                     <a href="#" class="btn btn-primary btn-sm">Learn more</a>
                 </div>
-
+                
             </div>
         </div>
     </div>
@@ -606,7 +584,7 @@
                                         </div>
                                     </div>
                                 </li>
-
+                                
                             </ul>
                         </div>
                     </div>
@@ -630,7 +608,7 @@
                                         </div>
                                         <p class="chat-time mb-0"><i class="mdi mdi-clock-outline align-middle mr-1"></i> 12:09</p>
                                     </div>
-
+                                    
                                 </div>
                             </li>
 
@@ -649,7 +627,7 @@
                                 </div>
                             </li>
 
-                            <li>
+                            <li> 
                                 <div class="chat-day-title">
                                     <span class="title">Today</span>
                                 </div>
@@ -668,7 +646,7 @@
                                         </div>
                                         <p class="chat-time mb-0"><i class="mdi mdi-clock-outline align-middle mr-1"></i> 10:00</p>
                                     </div>
-
+                                    
                                 </div>
                             </li>
 
@@ -699,14 +677,14 @@
                                                 Yeah everything is fine
                                             </p>
                                         </div>
-
+                                        
                                         <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:06</p>
                                     </div>
-
+                                    
                                 </div>
                             </li>
 
-                            <li>
+                            <li >
                                 <div class="conversation-list">
                                     <div class="chat-avatar">
                                         <img src="{{ URL::asset('/assets/images/users/avatar-2.jpg')}}" alt="">
@@ -718,7 +696,7 @@
                                         </div>
                                         <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:06</p>
                                     </div>
-
+                                    
                                 </div>
                             </li>
 
@@ -736,8 +714,8 @@
                                     </div>
                                 </div>
                             </li>
-
-
+                            
+                            
                         </ul>
                     </div>
                 </div>
@@ -803,13 +781,13 @@
                                         <label class="custom-control-label" for="ordercheck1">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1572</a> </td>
                                 <td>
                                     04 Apr, 2020
                                 </td>
                                 <td>Walter Brown</td>
-
+                                
                                 <td>
                                     $172
                                 </td>
@@ -828,13 +806,13 @@
                                         <label class="custom-control-label" for="ordercheck2">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1571</a> </td>
                                 <td>
                                     03 Apr, 2020
                                 </td>
                                 <td>Jimmy Barker</td>
-
+                                
                                 <td>
                                     $165
                                 </td>
@@ -854,13 +832,13 @@
                                         <label class="custom-control-label" for="ordercheck3">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1570</a> </td>
                                 <td>
                                     03 Apr, 2020
                                 </td>
                                 <td>Donald Bailey</td>
-
+                                
                                 <td>
                                     $146
                                 </td>
@@ -879,13 +857,13 @@
                                         <label class="custom-control-label" for="ordercheck4">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1569</a> </td>
                                 <td>
                                     02 Apr, 2020
                                 </td>
                                 <td>Paul Jones</td>
-
+                                
                                 <td>
                                     $183
                                 </td>
@@ -904,13 +882,13 @@
                                         <label class="custom-control-label" for="ordercheck5">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1568</a> </td>
                                 <td>
                                     01 Apr, 2020
                                 </td>
                                 <td>Jefferson Allen</td>
-
+                                
                                 <td>
                                     $160
                                 </td>
@@ -929,13 +907,13 @@
                                         <label class="custom-control-label" for="ordercheck6">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1567</a> </td>
                                 <td>
                                     31 Mar, 2020
                                 </td>
                                 <td>Jeffrey Waltz</td>
-
+                                
                                 <td>
                                     $105
                                 </td>
@@ -954,13 +932,13 @@
                                         <label class="custom-control-label" for="ordercheck7">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1566</a> </td>
                                 <td>
                                     30 Mar, 2020
                                 </td>
                                 <td>Jewel Buckley</td>
-
+                                
                                 <td>
                                     $112
                                 </td>
@@ -979,13 +957,13 @@
                                         <label class="custom-control-label" for="ordercheck8">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1565</a> </td>
                                 <td>
                                     29 Mar, 2020
                                 </td>
                                 <td>Jamison Clark</td>
-
+                                
                                 <td>
                                     $123
                                 </td>
@@ -1004,13 +982,13 @@
                                         <label class="custom-control-label" for="ordercheck9">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1564</a> </td>
                                 <td>
                                     28 Mar, 2020
                                 </td>
                                 <td>Eddy Torres</td>
-
+                                
                                 <td>
                                     $141
                                 </td>
@@ -1029,13 +1007,13 @@
                                         <label class="custom-control-label" for="ordercheck10">&nbsp;</label>
                                     </div>
                                 </td>
-
+                                
                                 <td><a href="javascript: void(0);" class="text-dark font-weight-bold">#NZ1563</a> </td>
                                 <td>
                                     28 Mar, 2020
                                 </td>
                                 <td>Frank Dean</td>
-
+                                
                                 <td>
                                     $164
                                 </td>
@@ -1054,30 +1032,18 @@
         </div>
     </div>
 </div>
-<!-- end row -->
+       
 @endsection
-
 @section('script')
-<!-- plugin js -->
-<script src="{{ URL::asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+        
+<!-- apexcharts -->
+<script src="{{ URL::asset('/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
 
 <!-- jquery.vectormap map -->
 <script src="{{ URL::asset('/assets/libs/jquery-vectormap/jquery-vectormap.min.js')}}"></script>
 
-<!-- Responsive examples -->
+<!-- Required datatable js -->
 <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js')}}"></script>
 
 <script src="{{ URL::asset('/assets/js/pages/dashboard.init.js')}}"></script>
-
 @endsection
-
-@else
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('system.login') }}">{{ __('Login') }}</a>
-</li>
-@if (Route::has('register'))
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('system.register') }}">{{ __('Register') }}</a>
-</li>
-@endif
-@endguest

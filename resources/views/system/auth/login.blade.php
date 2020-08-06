@@ -25,7 +25,7 @@ Login
                                             </div>
 
                                             <h4 class="font-size-18 mt-4">Bem Vindo de volta !</h4>
-                                            <p class="text-muted">Sign in to continue to Nazox.</p>
+                                            <!-- <p class="text-muted">Sign in to continue to Nazox.</p> -->
                                         </div>
 
                                         <div class="p-2 mt-5">
@@ -67,8 +67,7 @@ Login
                                                     @if (Route::has('password.request'))
                                                     <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> {{ __('Forgot your password?') }}</a>
                                                     @endif
-                                                    <br />
-                                                    <h2 class="text-politicas-uso">POLÍTICAS DE USO</h2>
+                                                    <span class="text-politicas-uso">POLÍTICAS DE USO</span>
                                                 </div>
                                             </form>
                                         </div>
