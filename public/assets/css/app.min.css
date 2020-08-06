@@ -3630,12 +3630,15 @@ div.dt-button-info h2 {
   color: #fff;
 }
 
+<<<<<<< HEAD
 .text-politicas-uso {
   font-size: 12px;
   font-weight: bolder;
   color: black;
 }
 
+=======
+>>>>>>> d079ec48f9dbab781094c8de20cff1212cf795d5
 @media (max-width: 991px) {
   .authentication-bg {
     display: none;
