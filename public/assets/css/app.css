@@ -3593,7 +3593,7 @@ div.dt-button-info h2 {
 }
 
 .authentication-bg {
-  background-image: url("/assets/images/tela-inicial.png");
+  background-image: url("/images/authentication-bg.jpg");
   height: 100vh;
   background-size: cover;
   background-position: center;

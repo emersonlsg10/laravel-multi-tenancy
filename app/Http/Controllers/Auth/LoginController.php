@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use App\Tenant\TenantFacade;
+
 class LoginController extends Controller
 {
     /*
@@ -40,13 +42,13 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        $view = \Tenant::isTenantRequest() ? 'tenant.auth.login' : 'system.auth.login';
+        $view = TenantFacade::isTenantRequest() ? 'tenant.auth.login' : 'system.auth.login';
         return view($view);
     }
 
     public function redirectPath()
     {
-        return \Tenant::isTenantRequest() ?
+        return TenantFacade::isTenantRequest() ?
             route('tenant.home', ['prefix' => \Request::route('prefix')]) :
             '/system/home';
     }
@@ -59,7 +61,7 @@ class LoginController extends Controller
      */
     protected function loggedOut(Request $request)
     {
-        return \Tenant::isTenantRequest() ?
+        return TenantFacade::isTenantRequest() ?
             redirect()->route('tenant.login', ['prefix' => \Request::route('prefix')]) :
             redirect()->route('system.login');
     }
@@ -71,7 +73,7 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        $guard = \Tenant::isTenantRequest() ? 'tenant':'system';
+        $guard = TenantFacade::isTenantRequest() ? 'tenant':'system';
         return \Auth::guard($guard);
     }
 }
