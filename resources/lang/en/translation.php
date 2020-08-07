@@ -1,6 +1,7 @@
 <?php
 
 return [
+  "Usuários"=> "Usuários",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

@@ -17,6 +17,15 @@
                 </li>
 
                 <li>
+                    <a  href="{{ route('tenant.users.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                        <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg><span class="badge badge-pill badge-success float-right">3</span>
+                        <span>@lang('translation.Usuários')</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="calendar" class=" waves-effect">
                         <i class="ri-calendar-2-line"></i>
                         <span>@lang('translation.Calendar')</span>
@@ -46,7 +55,7 @@
                         <li><a href="ecommerce-add-product">@lang('translation.Add_Product')</a></li>
                     </ul>
                 </li>
-                
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
@@ -218,7 +227,7 @@
                         <span>@lang('translation.Multi_Level')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);"@lang('translation.Level_1.1')></a></li>
+                        <li><a href="javascript: void(0);" @lang('translation.Level_1.1')></a></li>
                         <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
                             <ul class="sub-menu" aria-expanded="true">
                                 <li><a href="javascript: void(0);">Level 2.1</a></li>

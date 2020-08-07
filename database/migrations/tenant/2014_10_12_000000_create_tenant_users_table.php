@@ -16,6 +16,7 @@ class CreateTenantUsersTable extends Migration
         Schema::create('tenant_users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
+            $table->string('user_type');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

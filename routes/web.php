@@ -31,13 +31,23 @@ Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
     });
 });
 
+// rotas dos Tenants
 Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
     Auth::routes();
 
     Route::group(['middleware' => 'auth:tenant'], function(){
-        Route::name('home')->get('home', function () {
-            return view('tenant.home');
+        
+        // Route::name('home')->get('home', function () {
+        //     return view('tenant.home');
+        // });
+
+        Route::get('/', function () {
+            return view('tenant.index');
         });
+        
+        Route::resource('users', 'UserController');
+        Route::resource('users/cadastro', 'UserController@create');
+        
         Route::resource('categories', 'CategoryController');
     });
 });
