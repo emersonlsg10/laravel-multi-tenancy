@@ -47,6 +47,8 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         
         Route::resource('users', 'UserController');
         Route::resource('users/cadastro', 'UserController@create');
+        Route::post('/users/cadastro', 'UserController@register')->name('users.register');
+        Route::get('/users/editar/{id}', 'UserController@edit')->name('users.edit');
         
         Route::resource('categories', 'CategoryController');
     });
