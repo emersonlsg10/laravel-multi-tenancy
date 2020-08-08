@@ -43,13 +43,19 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
 
         Route::get('/', function () {
             return view('tenant.index');
-        });
+        })->name('tenant.index');
         
+        // rota de users
         Route::resource('users', 'UserController');
         Route::resource('users/cadastro', 'UserController@create');
         Route::post('/users/cadastro', 'UserController@register')->name('users.register');
-        Route::get('/users/editar/{id}', 'UserController@edit')->name('users.edit');
         
+        Route::get('/users/editar/{id}', 'UserController@edit')->name('users.edit');
+        Route::resource('users/update', 'UserController@update');
+        Route::post('/users/update', 'UserController@updateRegister')->name('users.updateRegister');
+        Route::get('/users/deletar/{id}', 'UserController@delete')->name('users.delete');
+        // rota de users
+
         Route::resource('categories', 'CategoryController');
     });
 });

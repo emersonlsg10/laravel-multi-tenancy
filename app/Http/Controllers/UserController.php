@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    private $userTenant;
+
+    public function __construct(UserTenant $userTenant)
+    {
+        $this->userTenant = $userTenant;
+
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $users = UserTenant::all();
@@ -19,13 +28,58 @@ class UserController extends Controller
         return view('tenant.users.create');
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-        // Get the current URL without the query string...
-        echo url()->current();
-        // return view('tenant.users.create');
+        //encontra usuário no BD
+        $user = UserTenant::where('id_user', $request->id)->first();
+
+        return view('tenant.users.update', compact('user'));
     }
 
+    public function updateRegister(Request $request)
+    {
+        //pega todos os campos exeto token
+        $data = $request->except('_token');
+
+        // confere se as senhas são iguais
+        if ($request->password !== $request->confirm_password) {
+            //se der alguma falha, volta para a home com msg de falha
+            return redirect()
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
+                ->with('error', 'As senhas não conferem!');
+        }
+
+        $checkEmail = UserTenant::where('email', $request->email)->first();
+        
+        if ($checkEmail->id_user != $request->id_user) {
+            //se der alguma falha, volta para a home com msg de falha
+            return redirect()
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
+                ->with('error', 'Esse email já foi cadastrado!');
+        }
+
+        $payload = [
+            'password' => Hash::make($request->password),
+            'email' => $request->email,
+            'name' => $request->name,
+            'user_type' => $request->user_type,
+        ];
+
+        // $user = UserTenant::where('id_user', $request->id_user)->first();
+        $user = UserTenant::where('id_user', $request->id_user)
+            ->update($payload);
+        //se tudo ocorrer bem, atualiza e volta para o perfil
+        if ($user) {
+            return redirect()
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
+                ->with('success', "Sucesso ao atualizar.");
+        }
+
+        //se der alguma falha, volta para a home com msg de falha
+        return redirect()
+            ->route('tenant.users.create', ['prefix' => \Request::route('prefix')])
+            ->with('error', "Falha ao atualizar. Tente novamente!!");
+    }
     /**
      * @param Request $request
      */
@@ -73,6 +127,22 @@ class UserController extends Controller
             return redirect()
                 ->route('tenant.users.create', ['prefix' => \Request::route('prefix')])
                 ->with('error', 'Falha ao cadastrar!!');
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        //encontra usuário no BD
+        $user = UserTenant::where('id_user', $request->id)->delete();
+
+        if ($user) {
+            return redirect()
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
+                ->with('success', "Sucesso ao deletar!");
+        } else {
+            return redirect()
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
+                ->with('error', 'Falha ao deletar!');
         }
     }
 }
