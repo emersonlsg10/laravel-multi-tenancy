@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
     Auth::routes();
 
-    Route::group(['middleware' => 'auth:system'], function(){
+    Route::group(['middleware' => 'auth:system'], function () {
         Route::get('home', function () {
             return view('system.home');
         });
@@ -35,25 +35,36 @@ Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
 Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
     Auth::routes();
 
-    Route::group(['middleware' => 'auth:tenant'], function(){
-        
+    Route::group(['middleware' => 'auth:tenant'], function () {
+
         // Route::name('home')->get('home', function () {
         //     return view('tenant.home');
         // });
 
-        Route::get('/', function () {
+        Route::name('index')->get('index', function () {
             return view('tenant.index');
-        })->name('tenant.index');
-        
+        });
+
         // rota de users
         Route::resource('users', 'UserController');
         Route::resource('users/cadastro', 'UserController@create');
         Route::post('/users/cadastro', 'UserController@register')->name('users.register');
-        
+
         Route::get('/users/editar/{id}', 'UserController@edit')->name('users.edit');
         Route::resource('users/update', 'UserController@update');
         Route::post('/users/update', 'UserController@updateRegister')->name('users.updateRegister');
         Route::get('/users/deletar/{id}', 'UserController@delete')->name('users.delete');
+        // rota de users
+
+        // rota de users
+        Route::resource('collaborators', 'CollaboratorController');
+        Route::resource('collaborators/cadastro', 'CollaboratorController@create');
+        Route::post('/collaborators/cadastro', 'CollaboratorController@register')->name('collaborators.register');
+
+        Route::get('/collaborators/editar/{id}', 'CollaboratorController@edit')->name('collaborators.edit');
+        Route::resource('collaborators/update', 'CollaboratorController@update');
+        Route::post('/collaborators/update', 'CollaboratorController@updateRegister')->name('collaborators.updateRegister');
+        Route::get('/collaborators/deletar/{id}', 'CollaboratorController@delete')->name('collaborators.delete');
         // rota de users
 
         Route::resource('categories', 'CategoryController');

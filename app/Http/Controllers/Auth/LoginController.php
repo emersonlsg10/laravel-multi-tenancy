@@ -49,8 +49,8 @@ class LoginController extends Controller
     public function redirectPath()
     {
         return TenantFacade::isTenantRequest() ?
-            route('tenant.home', ['prefix' => \Request::route('prefix')]) :
-            '/system/home';
+            route('tenant.index', ['prefix' => \Request::route('prefix')]) :
+            '/system/index';
     }
 
     /**

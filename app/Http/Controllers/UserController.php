@@ -121,7 +121,7 @@ class UserController extends Controller
 
         if ($user->save()) {
             return redirect()
-                ->route('tenant.users.create', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.users.index', ['prefix' => \Request::route('prefix')])
                 ->with('success', "Sucesso ao cadastrar!");
         } else {
             return redirect()

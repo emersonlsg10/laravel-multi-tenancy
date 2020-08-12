@@ -2,6 +2,7 @@
 
 return [
   "Usuários"=> "Usuários",
+  "Colaboradores"=> "Colaboradores",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

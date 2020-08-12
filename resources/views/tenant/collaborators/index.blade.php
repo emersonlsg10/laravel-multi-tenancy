@@ -17,8 +17,8 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Lista de usuários</h4>
-                    <a href="{{ route('tenant.users.create', ['prefix' => \Request::route('prefix')]) }}">
+                    <h4 class="card-title">Lista de colaboradores</h4>
+                    <a href="{{ route('tenant.collaborators.create', ['prefix' => \Request::route('prefix')]) }}">
                         <button type="button" class="btn btn-outline-primary">Adicionar</button>
                     </a>
                 </div>
@@ -27,28 +27,32 @@
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
-                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Serviço</th>
                             <th>Tipo</th>
+                            <th>Valor</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach($collaborators as $collaborator)
                         <tr>
-                            <td>{{$user->id_user}}</td>
-                            <td id="user_{{$user->id_user}}">{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->user_type}}</td>
+                            <td>{{$collaborator->id}}</td>
+                            <td id="collaborator_{{$collaborator->id}}">{{$collaborator->name}}</td>
+                            <td>{{$collaborator->phone}}</td>
+                            <td>{{$collaborator->service}}</td>
+                            <td>{{$collaborator->type}}</td>
+                            <td>{{$collaborator->value}}</td>
                             <td style="display: flex; flex-wrap: nowrap;justify-content: space-between">
-                                <a style="text-decoration: none" href="{{ url()->current().'/editar/'.$user->id_user}}">
+                                <a style="text-decoration: none" href="{{ url()->current().'/editar/'.$collaborator->id}}">
                                     <svg width=" 1em" height="1em" viewBox="0 0 16 16" class="iconTable bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                     </svg>
                                 </a>
-                                <button onclick="onOpenModal({{$user->id_user}})" type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                <button onclick="onOpenModal({{$collaborator->id}})" type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="iconTable bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
                                     </svg>
@@ -68,12 +72,12 @@
 <script>
     function onOpenModal(id) {
 
-        const name = $('#user_' + id).text();
+        const name = $('#collaborator_' + id).text();
 
-        const text = `Realmente deseja excluir o usuário ${name} ?`;
+        const text = `Realmente deseja excluir o colaborador ${name} ?`;
 
         $('.text-modal').text(text);
-        
+
         // SETA O ID CORRETO PARA DELETAR
         const novaRota = $('#hrefDelete').attr("href")+id;
         $('#hrefDelete').attr("href", novaRota);   
