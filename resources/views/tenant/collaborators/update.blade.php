@@ -63,6 +63,39 @@
                             </select>
                         </div>
                     </div>
+                    <div style="margin-bottom: 20px;display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Endereço</h4>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">CEP</label>
+                            <input value="{{$collaborator->cep}}" required type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Logradouro</label>
+                            <input value="{{$collaborator->logradouro}}" required type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Bairro</label>
+                            <input value="{{$collaborator->bairro}}" required type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Cidade</label>
+                            <input value="{{$collaborator->cidade}}" required type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Estado</label>
+                            <input value="{{$collaborator->estado}}" required type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Numero</label>
+                            <input value="{{$collaborator->numero}}" required type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Atualizar</button>
                 </form>
 

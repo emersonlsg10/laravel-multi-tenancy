@@ -2,38 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Collaborator;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class CollaboratorController extends Controller
+class ClientController extends Controller
 {
-    private $collaborator;
+    private $client;
 
-    public function __construct(Collaborator $collaborator)
+    public function __construct(Client $client)
     {
-        $this->collaborator = $collaborator;
+        $this->client = $client;
 
         $this->middleware('auth');
     }
 
     public function index()
     {
-        $collaborators = Collaborator::all();
-        return view('tenant.collaborators.index', compact('collaborators'));
+        $clients = Client::all();
+        return view('tenant.clients.index', compact('clients'));
     }
 
     public function create()
     {
-        return view('tenant.collaborators.create');
+        return view('tenant.clients.create');
     }
 
     public function edit(Request $request)
     {
         //encontra usuário no BD
-        $collaborator = Collaborator::where('id', $request->id)->first();
+        $client = Client::where('id', $request->id)->first();
 
-        return view('tenant.collaborators.update', compact('collaborator'));
+        return view('tenant.clients.update', compact('client'));
     }
 
     public function updateRegister(Request $request)
@@ -41,12 +41,20 @@ class CollaboratorController extends Controller
         //pega todos os campos exeto token
         $data = $request->except('_token');
 
+        $checkEmail = Client::where('email', $request->email)->first();
+
+        if ($checkEmail->id != $request->id) {
+            //se der alguma falha, volta para a home com msg de falha
+            return redirect()
+                ->route('tenant.clients.index', ['prefix' => \Request::route('prefix')])
+                ->with('error', 'Esse email já foi cadastrado!');
+        }
+
         $payload = [
-            'phone' => $request->phone,
             'name' => $request->name,
-            'service' => $request->service,
-            'value' => $request->value,
-            'type' => $request->type,
+            'email' => $request->email,
+            'profile_client' => $request->profile_client,
+            'observation' => $request->observation,
             'cep'=> $request->cep,
             'logradouro'=> $request->logradouro,
             'numero'=> $request->numero,
@@ -57,10 +65,9 @@ class CollaboratorController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'min:9'],
-            'service' => ['required', 'string', 'min:3'],
-            'value' => ['required', 'string', 'min:3'],
-            'type' => ['string'],
+            'email' => ['required', 'email'],
+            'profile_client' => ['required', 'string'],
+            'observation' => ['required', 'string'],
             'cep' => ['string'],
             'logradouro' => ['string'],
             'numero' => ['string'],
@@ -69,19 +76,19 @@ class CollaboratorController extends Controller
             'estado' => ['string'],
         ]);
 
-        // $user = Collaborator::where('id_user', $request->id_user)->first();
-        $collaborator = Collaborator::where('id', $request->id)
+        // $user = client::where('id_user', $request->id_user)->first();
+        $client = Client::where('id', $request->id)
             ->update($payload);
         //se tudo ocorrer bem, atualiza e volta para o perfil
-        if ($collaborator) {
+        if ($client) {
             return redirect()
-                ->route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.clients.index', ['prefix' => \Request::route('prefix')])
                 ->with('success', "Sucesso ao atualizar.");
         }
 
         //se der alguma falha, volta para a home com msg de falha
         return redirect()
-            ->route('tenant.collaborators.create', ['prefix' => \Request::route('prefix')])
+            ->route('tenant.clients.create', ['prefix' => \Request::route('prefix')])
             ->with('error', "Falha ao atualizar. Tente novamente!!");
     }
     /**
@@ -89,12 +96,20 @@ class CollaboratorController extends Controller
      */
     public function register(Request $request)
     {
+        $checkEmail = Client::where('email', $request->email)->first();
+
+        if ($checkEmail) {
+            //se der alguma falha, volta para a home com msg de falha
+            return redirect()
+                ->route('tenant.clients.create', ['prefix' => \Request::route('prefix')])
+                ->with('error', 'Esse email já foi cadastrado!');
+        }
+
         $payload = [
-            'phone' => $request->phone,
             'name' => $request->name,
-            'service' => $request->service,
-            'value' => $request->value,
-            'type' => $request->type,
+            'email' => $request->email,
+            'profile_client' => $request->profile_client,
+            'observation' => $request->observation,
             'cep'=> $request->cep,
             'logradouro'=> $request->logradouro,
             'numero'=> $request->numero,
@@ -105,10 +120,9 @@ class CollaboratorController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'min:9'],
-            'service' => ['required', 'string', 'min:3'],
-            'value' => ['required', 'string', 'min:3'],
-            'type' => ['string'],
+            'email' => ['required', 'email'],
+            'profile_client' => ['required', 'string'],
+            'observation' => ['required', 'string'],
             'cep' => ['string'],
             'logradouro' => ['string'],
             'numero' => ['string'],
@@ -117,15 +131,15 @@ class CollaboratorController extends Controller
             'estado' => ['string'],
         ]);
 
-        $collaborator = Collaborator::create($payload);
+        $client = Client::create($payload);
 
-        if ($collaborator->save()) {
+        if ($client->save()) {
             return redirect()
-                ->route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.clients.index', ['prefix' => \Request::route('prefix')])
                 ->with('success', "Sucesso ao cadastrar!");
         } else {
             return redirect()
-                ->route('tenant.collaborators.create', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.clients.create', ['prefix' => \Request::route('prefix')])
                 ->with('error', 'Falha ao cadastrar!!');
         }
     }
@@ -133,15 +147,15 @@ class CollaboratorController extends Controller
     public function delete(Request $request)
     {
         //encontra usuário no BD
-        $collaborator = Collaborator::where('id', $request->id)->delete();
+        $client = Client::where('id', $request->id)->delete();
 
-        if ($collaborator) {
+        if ($client) {
             return redirect()
-                ->route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.clients.index', ['prefix' => \Request::route('prefix')])
                 ->with('success', "Sucesso ao deletar!");
         } else {
             return redirect()
-                ->route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')])
+                ->route('tenant.clients.index', ['prefix' => \Request::route('prefix')])
                 ->with('error', 'Falha ao deletar!');
         }
     }

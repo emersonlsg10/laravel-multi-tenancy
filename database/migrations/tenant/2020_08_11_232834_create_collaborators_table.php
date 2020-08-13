@@ -20,6 +20,12 @@ class CreateCollaboratorsTable extends Migration
             $table->string('service');
             $table->string('value');
             $table->enum('type', ['funcionario', 'costureira', 'tecnico']);
+            $table->string('cep')->nullable();
+            $table->string('logradouro')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('estado')->nullable();
             $table->timestamps();
         });
     }

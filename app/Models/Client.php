@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
 
-class UserTenant extends BaseUser
+class Client extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,9 +13,8 @@ class UserTenant extends BaseUser
     protected $fillable = [
         'name',
         'email',
-        'password',
-        'confirm_password',
-        'user_type',
+        'profile_client',
+        'observation',
         'cep',
         'logradouro',
         'numero',
@@ -24,5 +24,4 @@ class UserTenant extends BaseUser
     ];
 
     protected $connection = 'tenant';
-    protected $table = 'tenant_users';
 }

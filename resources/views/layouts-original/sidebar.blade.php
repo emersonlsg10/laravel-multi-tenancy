@@ -20,7 +20,7 @@
                     <a  href="{{ route('tenant.users.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
                         <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                        </svg><span class="badge badge-pill badge-success float-right">3</span>
+                        </svg><span class="badge badge-pill badge-success float-right"></span>
                         <span>@lang('translation.Usuários')</span>
                     </a>
                 </li>
@@ -29,8 +29,17 @@
                     <a  href="{{ route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
                         <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                        </svg><span class="badge badge-pill badge-success float-right">3</span>
+                        </svg><span class="badge badge-pill badge-success float-right"></span>
                         <span>@lang('translation.Colaboradores')</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a  href="{{ route('tenant.clients.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                        <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg><span class="badge badge-pill badge-success float-right"></span>
+                        <span>@lang('translation.Clientes')</span>
                     </a>
                 </li>
 

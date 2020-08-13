@@ -3,6 +3,7 @@
 return [
   "Usuários"=> "Usuários",
   "Colaboradores"=> "Colaboradores",
+  "Clientes"=> "Clientes",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

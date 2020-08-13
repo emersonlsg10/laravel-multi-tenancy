@@ -50,7 +50,7 @@ class UserController extends Controller
         }
 
         $checkEmail = UserTenant::where('email', $request->email)->first();
-        
+
         if ($checkEmail->id_user != $request->id_user) {
             //se der alguma falha, volta para a home com msg de falha
             return redirect()
@@ -63,7 +63,27 @@ class UserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'user_type' => $request->user_type,
+            'cep'=> $request->cep,
+            'logradouro'=> $request->logradouro,
+            'numero'=> $request->numero,
+            'bairro'=> $request->bairro,
+            'cidade'=> $request->cidade,
+            'estado'=> $request->estado,
         ];
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:tenant.tenant_users'],
+            'password' => ['required', 'string', 'min:6'],
+            'confirm_password' => ['required', 'string', 'min:6'],
+            'user_type' => ['string'],
+            'cep' => ['string'],
+            'logradouro' => ['string'],
+            'numero' => ['string'],
+            'bairro' => ['string'],
+            'cidade' => ['string'],
+            'estado' => ['string'],
+        ]);
 
         // $user = UserTenant::where('id_user', $request->id_user)->first();
         $user = UserTenant::where('id_user', $request->id_user)
@@ -107,6 +127,12 @@ class UserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'user_type' => $request->user_type,
+            'cep'=> $request->cep,
+            'logradouro'=> $request->logradouro,
+            'numero'=> $request->numero,
+            'bairro'=> $request->bairro,
+            'cidade'=> $request->cidade,
+            'estado'=> $request->estado,
         ];
 
         $request->validate([
@@ -115,6 +141,12 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:6'],
             'confirm_password' => ['required', 'string', 'min:6'],
             'user_type' => ['string'],
+            'cep' => ['string'],
+            'logradouro' => ['string'],
+            'numero' => ['string'],
+            'bairro' => ['string'],
+            'cidade' => ['string'],
+            'estado' => ['string'],
         ]);
 
         $user = UserTenant::create($payload);
