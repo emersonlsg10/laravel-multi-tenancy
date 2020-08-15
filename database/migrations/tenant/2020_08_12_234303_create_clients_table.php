@@ -19,6 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('email')->unique();
             $table->string('profile_client')->nullable();
             $table->string('observation')->nullable();
+            $table->string('phone')->nullable();
             $table->string('cep')->nullable();
             $table->string('logradouro')->nullable();
             $table->string('numero')->nullable();

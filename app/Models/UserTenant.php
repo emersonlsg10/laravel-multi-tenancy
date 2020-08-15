@@ -15,6 +15,7 @@ class UserTenant extends BaseUser
         'password',
         'confirm_password',
         'user_type',
+        'phone',
         'cep',
         'logradouro',
         'numero',

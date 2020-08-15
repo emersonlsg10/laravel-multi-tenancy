@@ -48,6 +48,10 @@
                             <label for="inputEmail4">Perfil Cliente</label>
                             <input value="{{$client->profile_client}}" required type="text" class="form-control" id="profile_client" name="profile_client" placeholder="Perfil Cliente">
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Telefone</label>
+                            <input value="{{$client->phone}}" required type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">

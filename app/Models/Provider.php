@@ -1,20 +1,14 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Provider extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name',
-        'email',
-        'profile_client',
-        'observation',
+        'name_company',
+        'provider_representant',
         'phone',
         'cep',
         'logradouro',
@@ -23,6 +17,5 @@ class Client extends Model
         'cidade',
         'estado',
     ];
-
     protected $connection = 'tenant';
 }

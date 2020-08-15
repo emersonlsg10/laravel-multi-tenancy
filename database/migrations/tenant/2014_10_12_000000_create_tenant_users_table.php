@@ -18,6 +18,7 @@ class CreateTenantUsersTable extends Migration
             $table->increments('id_user');
             $table->string('name');
             $table->string('user_type');
+            $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->string('cep')->nullable();
             $table->string('logradouro')->nullable();

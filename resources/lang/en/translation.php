@@ -4,6 +4,8 @@ return [
   "Usuários"=> "Usuários",
   "Colaboradores"=> "Colaboradores",
   "Clientes"=> "Clientes",
+  "Fornecedores"=> "Fornecedores",
+  "Materiais"=> "Materiais",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

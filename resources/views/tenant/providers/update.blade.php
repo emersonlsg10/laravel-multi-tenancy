@@ -14,13 +14,13 @@
 @endif
 
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
 
 <div class="row">
@@ -28,34 +28,25 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Cadastro de clientes</h4>
+                    <h4 class="card-title">Editar fornecedor</h4>
                 </div>
-                <form method="POST" action="{{ route('tenant.clients.register', ['prefix' => \Request::route('prefix')]) }}">
+                <form method="POST" action="{{ route('tenant.providers.updateRegister', ['prefix' => \Request::route('prefix')]) }}">
                     {{ csrf_field() }}
+                    <input type="hidden" value="{{$provider->id}}" name="id" />
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nome</label>
-                            <input required type="name" class="form-control" id="name" name="name" placeholder="Nome">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="phone">Email</label>
-                            <input required type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Nome da empresa</label>
+                            <input value="{{$provider->name_company}}" required type="name" class="form-control" id="name_company" name="name_company" placeholder="Nome da empresa">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Perfil Cliente</label>
-                            <input required type="text" class="form-control" id="profile_client" name="profile_client" placeholder="Perfil Cliente">
+                        <div class="form-group col-md-6">
+                            <label for="phone">Representante</label>
+                            <input value="{{$provider->provider_representant}}" required type="text" class="form-control" id="provider_representant" name="provider_representant" placeholder="Representante">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Telefone</label>
-                            <input required type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Observação</label>
-                            <textarea class="form-control" id="observation" name="observation" rows="2"></textarea>
+                            <input value="{{$provider->phone}}" required type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
                         </div>
                     </div>
                     <div style="margin-bottom: 20px;display: flex; justify-content: space-between; align-items: center;">
@@ -64,34 +55,34 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">CEP</label>
-                            <input required type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
+                            <input value="{{$provider->cep}}" required type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Logradouro</label>
-                            <input required type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
+                            <input value="{{$provider->logradouro}}" required type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Bairro</label>
-                            <input required type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+                            <input value="{{$provider->bairro}}" required type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Cidade</label>
-                            <input required type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+                            <input value="{{$provider->cidade}}" required type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Estado</label>
-                            <input required type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
+                            <input value="{{$provider->estado}}" required type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Numero</label>
-                            <input required type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
+                            <input value="{{$provider->numero}}" required type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
                 </form>
 
             </div>
@@ -111,7 +102,7 @@
     }
 
     .footer {
-        bottom: -250px !important;
+        bottom: -200px !important;
     }
 </style>
 @section('script')

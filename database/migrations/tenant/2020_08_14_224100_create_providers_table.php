@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCollaboratorsTable extends Migration
+class CreateProvidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCollaboratorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('collaborators', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('providers', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name_company');
+            $table->string('provider_representant');
             $table->string('phone')->nullable();
-            $table->string('service');
-            $table->string('value');
-            $table->enum('type', ['funcionario', 'costureira', 'tecnico']);
             $table->string('cep')->nullable();
             $table->string('logradouro')->nullable();
             $table->string('numero')->nullable();
@@ -37,6 +35,6 @@ class CreateCollaboratorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collaborators');
+        Schema::dropIfExists('providers');
     }
 }

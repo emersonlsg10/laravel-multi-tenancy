@@ -28,36 +28,26 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Cadastro de clientes</h4>
+                    <h4 class="card-title">Cadastro de fornecedores</h4>
                 </div>
-                <form method="POST" action="{{ route('tenant.clients.register', ['prefix' => \Request::route('prefix')]) }}">
+                <form method="POST" action="{{ route('tenant.providers.register', ['prefix' => \Request::route('prefix')]) }}">
                     {{ csrf_field() }}
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nome</label>
-                            <input required type="name" class="form-control" id="name" name="name" placeholder="Nome">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="phone">Email</label>
-                            <input required type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Nome da empresa</label>
+                            <input required type="name" class="form-control" id="name_company" name="name_company" placeholder="Nome da empresa">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Perfil Cliente</label>
-                            <input required type="text" class="form-control" id="profile_client" name="profile_client" placeholder="Perfil Cliente">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Representante</label>
+                            <input required type="name" class="form-control" id="provider_representant" name="provider_representant" placeholder="Representante">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Telefone</label>
                             <input required type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Observação</label>
-                            <textarea class="form-control" id="observation" name="observation" rows="2"></textarea>
-                        </div>
-                    </div>
+                    </div>                    
                     <div style="margin-bottom: 20px;display: flex; justify-content: space-between; align-items: center;">
                         <h4>Endereço</h4>
                     </div>
@@ -111,7 +101,7 @@
     }
 
     .footer {
-        bottom: -250px !important;
+        bottom: -200px !important;
     }
 </style>
 @section('script')
