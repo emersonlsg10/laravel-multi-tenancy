@@ -17,8 +17,8 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Lista de clientes</h4>
-                    <a href="{{ route('tenant.clients.create', ['prefix' => \Request::route('prefix')]) }}">
+                    <h4 class="card-title">Lista de Máquinas</h4>
+                    <a href="{{ route('tenant.machines.create', ['prefix' => \Request::route('prefix')]) }}">
                         <button type="button" class="btn btn-outline-primary">Adicionar</button>
                     </a>
                 </div>
@@ -26,31 +26,31 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Perfil Cliente</th>
-                            <th>Observação</th>
+                            <th>Modelo</th>
+                            <th>Largura</th>
+                            <th>Custo</th>
+                            <th>Valor</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
 
 
                     <tbody>
-                        @foreach($clients as $client)
+                        @foreach($machines as $machine)
                         <tr>
-                            <td>{{$client->id}}</td>
-                            <td id="client_{{$client->id}}">{{$client->name}}</td>
-                            <td>{{$client->email}}</td>
-                            <td>{{$client->profile_client}}</td>
-                            <td>{{$client->observation}}</td>
+                            <td>{{$machine->id}}</td>
+                            <td id="machine_{{$machine->id}}">{{$machine->model}}</td>
+                            <td>{{$machine->width}}</td>
+                            <td>{{$machine->cost}}</td>
+                            <td>{{$machine->value}}</td>
                             <td style="display: flex; flex-wrap: nowrap;justify-content: space-between">
-                                <a style="text-decoration: none" href="{{ url()->current().'/editar/'.$client->id}}">
+                                <a style="text-decoration: none" href="{{ url()->current().'/editar/'.$machine->id}}">
                                     <svg width=" 1em" height="1em" viewBox="0 0 16 16" class="iconTable bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                     </svg>
                                 </a>
-                                <button onclick="onOpenModal({{$client->id}})" type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                <button onclick="onOpenModal({{$machine->id}})" type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="iconTable bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
                                     </svg>
@@ -70,9 +70,9 @@
 <script>
     function onOpenModal(id) {
 
-        const name = $('#client_' + id).text();
+        const name = $('#machine_' + id).text();
 
-        const text = `Realmente deseja excluir o (a) cliente ${name} ?`;
+        const text = `Realmente deseja excluir o (a) máquina ${name} ?`;
 
         $('.text-modal').text(text);
 
@@ -117,7 +117,7 @@
     }
 
     .footer {
-        bottom: -300px !important;
+        bottom: -200px !important;
     }
 </style>
 @section('script')

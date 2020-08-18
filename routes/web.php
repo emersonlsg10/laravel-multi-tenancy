@@ -100,6 +100,50 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/materials/deletar/{id}', 'MaterialController@delete')->name('materials.delete');
         // rota de materials
 
+        // rota de estoque
+        Route::resource('stocks', 'StockController');
+        Route::resource('stocks/cadastro', 'StockController@create');
+        Route::post('/stocks/cadastro', 'StockController@register')->name('stocks.register');
+
+        Route::get('/stocks/editar/{id}', 'StockController@edit')->name('stocks.edit');
+        Route::resource('stocks/update', 'StockController@update');
+        Route::post('/stocks/update', 'StockController@updateRegister')->name('stocks.updateRegister');
+        Route::get('/stocks/deletar/{id}', 'StockController@delete')->name('stocks.delete');
+        // rota de estoque
+
+        // rota de brindes - gifts
+        Route::resource('gifts', 'GiftController');
+        Route::resource('gifts/cadastro', 'GiftController@create');
+        Route::post('/gifts/cadastro', 'GiftController@register')->name('gifts.register');
+
+        Route::get('/gifts/editar/{id}', 'GiftController@edit')->name('gifts.edit');
+        Route::resource('gifts/update', 'GiftController@update');
+        Route::post('/gifts/update', 'GiftController@updateRegister')->name('gifts.updateRegister');
+        Route::get('/gifts/deletar/{id}', 'GiftController@delete')->name('gifts.delete');
+        // rota de brindes - gifts
+
+        // rota de maquinas
+        Route::resource('machines', 'MachineController');
+        Route::resource('machines/cadastro', 'MachineController@create');
+        Route::post('/machines/cadastro', 'MachineController@register')->name('machines.register');
+
+        Route::get('/machines/editar/{id}', 'MachineController@edit')->name('machines.edit');
+        Route::resource('machines/update', 'MachineController@update');
+        Route::post('/machines/update', 'MachineController@updateRegister')->name('machines.updateRegister');
+        Route::get('/machines/deletar/{id}', 'MachineController@delete')->name('machines.delete');
+        // rota de maquinas
+
+        // rota de serviços
+        Route::resource('services', 'ServiceController');
+        Route::resource('services/cadastro', 'ServiceController@create');
+        Route::post('/services/cadastro', 'ServiceController@register')->name('services.register');
+
+        Route::get('/services/editar/{id}', 'ServiceController@edit')->name('services.edit');
+        Route::resource('services/update', 'ServiceController@update');
+        Route::post('/services/update', 'ServiceController@updateRegister')->name('services.updateRegister');
+        Route::get('/services/deletar/{id}', 'ServiceController@delete')->name('services.delete');
+        // rota de serviços
+
         Route::resource('categories', 'CategoryController');
     });
 });
