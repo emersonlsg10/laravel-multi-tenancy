@@ -28,9 +28,9 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Cadastro de clientes</h4>
+                    <h4 class="card-title">Cadastro de Vestuário</h4>
                 </div>
-                <form method="POST" action="{{ route('tenant.clients.register', ['prefix' => \Request::route('prefix')]) }}">
+                <form method="POST" action="{{ route('tenant.clothings.register', ['prefix' => \Request::route('prefix')]) }}">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -38,57 +38,44 @@
                             <input required type="name" class="form-control" id="name" name="name" placeholder="Nome">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="phone">Email</label>
-                            <input required type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            <label for="phone">Modelo</label>
+                            <input required type="text" class="form-control" id="model" name="model" placeholder="Modelo">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputEmail4">Perfil Cliente</label>
-                            <input required type="text" class="form-control" id="profile_client" name="profile_client" placeholder="Perfil Cliente">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Custo</label>
+                            <input type="number" step="0.01" class="form-control" id="cost" name="cost">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="phone">Telefone</label>
-                            <input required type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
+                            <label for="inputPassword4">Valor</label>
+                            <input type="number" step="0.01" class="form-control" id="value" name="value">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Classificação</label>
+                            <input required type="text" class="form-control" id="classification" name="classification" placeholder="Classificação">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Tamanho</label>
+                            <input required type="text" class="form-control" id="size" name="size" placeholder="Tamanho">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Cor</label>
+                            <input type="text" class="form-control" id="color" name="color">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Quantidade</label>
+                            <input type="number" min="0" class="form-control" id="quantity" name="quantity">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputEmail4">Observação</label>
                             <textarea class="form-control" id="observation" name="observation" rows="2"></textarea>
-                        </div>
-                    </div>
-                    <div style="margin-bottom: 20px;display: flex; justify-content: space-between; align-items: center;">
-                        <h4>Endereço</h4>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">CEP</label>
-                            <input required type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Logradouro</label>
-                            <input required type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Bairro</label>
-                            <input required type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Cidade</label>
-                            <input required type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Estado</label>
-                            <input required type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Numero</label>
-                            <input required type="text" class="form-control" id="numero" name="numero" placeholder="Numero">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -111,7 +98,7 @@
     }
 
     .footer {
-        bottom: -350px !important;
+        bottom: -200px !important;
     }
 </style>
 @section('script')

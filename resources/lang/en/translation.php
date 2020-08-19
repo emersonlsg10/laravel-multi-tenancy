@@ -10,6 +10,8 @@ return [
   "Brindes"=> "Brindes",
   "Serviços"=> "Serviços",
   "Máquinas"=> "Máquinas",
+  "Orçamento"=> "Orçamento",
+  "Vestuário"=> "Vestuário",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

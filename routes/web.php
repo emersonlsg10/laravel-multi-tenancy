@@ -144,6 +144,28 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/services/deletar/{id}', 'ServiceController@delete')->name('services.delete');
         // rota de serviços
 
+        // rota de orçamento
+        Route::resource('budgets', 'BudgetController');
+        Route::resource('budgets/cadastro', 'BudgetController@create');
+        Route::post('/budgets/cadastro', 'BudgetController@register')->name('budgets.register');
+
+        Route::get('/budgets/editar/{id}', 'BudgetController@edit')->name('budgets.edit');
+        Route::resource('budgets/update', 'BudgetController@update');
+        Route::post('/budgets/update', 'BudgetController@updateRegister')->name('budgets.updateRegister');
+        Route::get('/budgets/deletar/{id}', 'BudgetController@delete')->name('budgets.delete');
+        // rota de orçamento
+
+        // rota de vestuário
+        Route::resource('clothings', 'ClothingController');
+        Route::resource('clothings/cadastro', 'ClothingController@create');
+        Route::post('/clothings/cadastro', 'ClothingController@register')->name('clothings.register');
+
+        Route::get('/clothings/editar/{id}', 'ClothingController@edit')->name('clothings.edit');
+        Route::resource('clothings/update', 'ClothingController@update');
+        Route::post('/clothings/update', 'ClothingController@updateRegister')->name('clothings.updateRegister');
+        Route::get('/clothings/deletar/{id}', 'ClothingController@delete')->name('clothings.delete');
+        // rota de vestuário
+
         Route::resource('categories', 'CategoryController');
     });
 });
