@@ -28,7 +28,7 @@
         <div class="card">
             <div class="card-body">
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
-                    <h4 class="card-title">Editar Vestuário</h4>
+                    <h4 class="card-title">Editar Produto</h4>
                 </div>
                 <form method="POST" action="{{ route('tenant.clothings.updateRegister', ['prefix' => \Request::route('prefix')]) }}">
                     {{ csrf_field() }}

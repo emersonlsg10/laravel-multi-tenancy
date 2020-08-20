@@ -12,6 +12,7 @@ return [
   "Máquinas"=> "Máquinas",
   "Orçamento"=> "Orçamento",
   "Vestuário"=> "Vestuário",
+  "Contas"=> "Contas a pagar",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",
