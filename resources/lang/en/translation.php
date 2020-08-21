@@ -13,6 +13,7 @@ return [
   "Orçamento"=> "Orçamento",
   "Vestuário"=> "Vestuário",
   "Contas"=> "Contas a pagar",
+  "Compras"=> "Compras",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

@@ -177,6 +177,17 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/accounts/deletar/{id}', 'AccountController@delete')->name('accounts.delete');
         // rota de contas a pagar
 
+        // rota de compra
+        Route::resource('shoppings', 'ShoppingController');
+        Route::resource('shoppings/cadastro', 'ShoppingController@create');
+        Route::post('/shoppings/cadastro', 'ShoppingController@register')->name('shoppings.register');
+
+        Route::get('/shoppings/editar/{id}', 'ShoppingController@edit')->name('shoppings.edit');
+        Route::resource('shoppings/update', 'ShoppingController@update');
+        Route::post('/shoppings/update', 'ShoppingController@updateRegister')->name('shoppings.updateRegister');
+        Route::get('/shoppings/deletar/{id}', 'ShoppingController@delete')->name('shoppings.delete');
+        // rota de compra
+
         Route::resource('categories', 'CategoryController');
     });
 });
