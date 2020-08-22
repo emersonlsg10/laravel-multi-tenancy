@@ -14,6 +14,7 @@ return [
   "Vestuário"=> "Vestuário",
   "Contas"=> "Contas a pagar",
   "Compras"=> "Compras",
+  "Caixa"=> "Caixa",
   "Mega_Menu"=> "Mega Menu",
   "Search"=> "Search", 
   "Menu"=> "Menu",

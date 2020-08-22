@@ -36,9 +36,8 @@
                         <div class="form-group col-md-12">
                             <label for="inputState">Caixa</label>
                             <select id="id_cashier" name="id_cashier" class="form-control">
-                                <option value="0">...</option>
                                 @foreach($cashiers as $cashier)
-                                <option value="{{$cashier->id}}">{{$cashier->name}}</option>
+                                <option value="{{$cashier->id}}">{{$cashier->created_at}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -15,7 +15,7 @@ class CreateTenantUsersTable extends Migration
     {
         Schema::create('tenant_users', function (Blueprint $table) {
             $table->uuid('id');
-            $table->increments('id_user');
+            $table->bigIncrements('id_user');
             $table->string('name');
             $table->string('user_type');
             $table->string('phone')->nullable();

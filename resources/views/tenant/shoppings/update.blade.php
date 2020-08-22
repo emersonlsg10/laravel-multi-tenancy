@@ -37,9 +37,8 @@
                         <div class="form-group col-md-12">
                             <label for="inputState">Caixa</label>
                             <select id="id_cashier" name="id_cashier" class="form-control">
-                                <option value="0">...</option>
                                 @foreach($cashiers as $cashier)
-                                <option <?php if ($cashier->id == $shopping->id_cashier) echo "selected"; ?> value="{{$cashier->id}}">{{$cashier->name}}</option>
+                                <option <?php if ($cashier->id == $shopping->id_cashier) echo "selected"; ?> value="{{$cashier->id}}">{{$cashier->created_at}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -47,7 +46,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label for="inputEmail4">Item</label>
-                            <input required type="text" class="form-control" id="name_shopping" name="name_shopping" placeholder="Item">
+                            <input value="{{$shopping->name_shopping}}" required type="text" class="form-control" id="name_shopping" name="name_shopping" placeholder="Item">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputEmail4">Valor</label>
@@ -61,7 +60,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Adicional Aplique</label>
-                            <input min="0" required type="number" step="0.01" class="form-control" id="additional_apply" name="additional_apply">
+                            <input value="{{$shopping->additional_apply}}" min="0" required type="number" step="0.01" class="form-control" id="additional_apply" name="additional_apply">
                         </div>
                     </div>
                     <div class="form-row">

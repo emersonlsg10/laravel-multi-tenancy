@@ -24,7 +24,7 @@ class ShoppingController extends Controller
         // $shoppings = shopping::all();
 
         $shoppings = Shopping::join('cashiers', 'shoppings.id_cashier', '=', 'cashiers.id')
-            ->select('shoppings.*', 'cashiers.name')
+            ->select('shoppings.*', 'cashiers.*')
             ->get();
 
         return view('tenant.shoppings.index', compact('shoppings'));
@@ -42,7 +42,7 @@ class ShoppingController extends Controller
         $shopping = Shopping::where('id', $request->id)->first();
         $cashiers = Cashier::all();
 
-        return view('tenant.shoppings.update', compact('shopping', 'ca$cashiers'));
+        return view('tenant.shoppings.update', compact('shopping', 'cashiers'));
     }
 
     public function updateRegister(Request $request)
@@ -65,7 +65,7 @@ class ShoppingController extends Controller
         ];
 
         $request->validate([
-            'id_cashier' => ['numeric'],
+            'id_cashier' => ['required', 'numeric'],
             'name_shopping' => ['string'],
             'value' => ['numeric'],
             'quantity' => ['numeric'],
@@ -113,7 +113,7 @@ class ShoppingController extends Controller
         ];
 
         $request->validate([
-            'id_cashier' => ['numeric'],
+            'id_cashier' => ['required', 'numeric'],
             'name_shopping' => ['string'],
             'value' => ['numeric'],
             'quantity' => ['numeric'],

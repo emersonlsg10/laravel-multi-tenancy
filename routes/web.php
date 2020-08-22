@@ -188,6 +188,17 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/shoppings/deletar/{id}', 'ShoppingController@delete')->name('shoppings.delete');
         // rota de compra
 
+        // rota de caixa
+        Route::resource('cashiers', 'CashierController');
+        Route::resource('cashiers/cadastro', 'CashierController@create');
+        Route::post('/cashiers/cadastro', 'CashierController@register')->name('cashiers.register');
+
+        Route::get('/cashiers/editar/{id}', 'CashierController@edit')->name('cashiers.edit');
+        Route::resource('cashiers/update', 'CashierController@update');
+        Route::post('/cashiers/update', 'CashierController@updateRegister')->name('cashiers.updateRegister');
+        Route::get('/cashiers/deletar/{id}', 'CashierController@delete')->name('cashiers.delete');
+        // rota de caixa
+
         Route::resource('categories', 'CategoryController');
     });
 });
