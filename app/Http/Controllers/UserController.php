@@ -71,14 +71,13 @@ class UserController extends Controller
             'cidade'=> $request->cidade,
             'estado'=> $request->estado,
         ];
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tenant.tenant_users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:6'],
             'confirm_password' => ['required', 'string', 'min:6'],
             'user_type' => ['string'],
-            'phone' => ['required', 'string'],
+            'phone' => ['string'],
             'cep' => ['string'],
             'logradouro' => ['string'],
             'numero' => ['string'],
@@ -129,6 +128,7 @@ class UserController extends Controller
             'email' => $request->email,
             'name' => $request->name,
             'user_type' => $request->user_type,
+            'phone' => $request->phone,
             'cep'=> $request->cep,
             'logradouro'=> $request->logradouro,
             'numero'=> $request->numero,
@@ -143,6 +143,7 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:6'],
             'confirm_password' => ['required', 'string', 'min:6'],
             'user_type' => ['string'],
+            'phone' => ['string'],
             'cep' => ['string'],
             'logradouro' => ['string'],
             'numero' => ['string'],

@@ -199,6 +199,17 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/cashiers/deletar/{id}', 'CashierController@delete')->name('cashiers.delete');
         // rota de caixa
 
+        // rota de pagamentos
+        Route::resource('payments', 'PaymentController');
+        Route::resource('payments/cadastro', 'PaymentController@create');
+        Route::post('/payments/cadastro', 'PaymentController@register')->name('payments.register');
+
+        Route::get('/payments/editar/{id}', 'PaymentController@edit')->name('payments.edit');
+        Route::resource('payments/update', 'PaymentController@update');
+        Route::post('/payments/update', 'PaymentController@updateRegister')->name('payments.updateRegister');
+        Route::get('/payments/deletar/{id}', 'PaymentController@delete')->name('payments.delete');
+        // rota de pagamentos
+
         Route::resource('categories', 'CategoryController');
     });
 });

@@ -12,6 +12,18 @@
 @if(session('error'))
 <div class="alert alert-danger">{{ session('error') }}</div>
 @endif
+
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -50,6 +62,10 @@
                                 <option <?php if ($user->user_type == 2) echo "selected"; ?> value="2">2</option>
                                 <option <?php if ($user->user_type == 3) echo "selected"; ?> value="3">3</option>
                             </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="inputEmail4">Telefone</label>
+                            <input value="{{$user->phone}}" type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
                         </div>
                     </div>
                     <div style="margin-bottom: 20px;display: flex; justify-content: space-between; align-items: center;">
@@ -105,7 +121,7 @@
     }
 
     .footer {
-        bottom: -200px !important;
+        bottom: -400px !important;
     }
 </style>
 @section('script')
