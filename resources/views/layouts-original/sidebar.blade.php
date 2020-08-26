@@ -10,6 +10,140 @@
                 <li class="menu-title">@lang('translation.Menu')</li>
 
                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <!--<i class="ri-store-2-line"></i>-->
+                        <i class="ri-account-circle-line"></i>
+                        <span>@lang('translation.Pessoas')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('tenant.users.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Usuários')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.clients.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Clientes')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.collaborators.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Colaboradores')</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--FINANCEIRO-->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <!--<i class="ri-store-2-line"></i>-->
+                        <i class="ri-bar-chart-line"></i>
+                        <span>@lang('translation.Financeiro')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('tenant.cashiers.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Caixa')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.shoppings.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Compras')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.accounts.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Contas')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.budgets.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Orçamento')</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--EMPRESA-->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-store-2-line"></i>
+                        <span>@lang('translation.Empresa')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="{{ route('tenant.gifts.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Brindes')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.stocks.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Estoque')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.providers.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Fornecedores')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.machines.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Máquinas')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.materials.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Materiais')</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tenant.clothings.index', ['prefix' => \Request::route('prefix')]) }}" class="waves-effect">
+                                <svg width="1.4em" height="1.4em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg><span class="badge badge-pill badge-success float-right"></span>
+                                <span>@lang('translation.Vestuário')</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- <li>
                     <a href="{{url('index')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i><span class="badge badge-pill badge-success float-right">3</span>
                         <span>@lang('translation.Dashboard')</span>
@@ -129,8 +263,8 @@
                         </svg><span class="badge badge-pill badge-success float-right"></span>
                         <span>@lang('translation.Caixa')</span>
                     </a>
-                </li>
-                
+                </li> -->
+
                 <li>
                     <a href="calendar" class=" waves-effect">
                         <i class="ri-calendar-2-line"></i>
@@ -138,7 +272,7 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="apps-chat" class=" waves-effect">
                         <i class="ri-chat-1-line"></i>
                         <span>@lang('translation.Chat')</span>
@@ -341,7 +475,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
         </div>

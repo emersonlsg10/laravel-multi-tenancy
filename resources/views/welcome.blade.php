@@ -97,6 +97,6 @@
             </div>
         </div>
       
-        @extends('layouts.footer')
+        @extends('layouts-original.footer')
     </body>
 </html>

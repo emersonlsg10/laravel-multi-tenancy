@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('/index');
 // });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('plans');
+});
+
+// rota de registro
+Route::get('/register-plan/{plan}', 'RegisterPlanController@index')->name('register-plan.index');
+// rota de registro
 
 Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
     Auth::routes();
