@@ -22,7 +22,8 @@ Route::get('/', function () {
 });
 
 // rota de registro
-Route::get('/register-plan/{plan}', 'RegisterPlanController@index')->name('register-plan.index');
+Route::get('/register-plan/{plan}', 'RegisterPlanController@create')->name('register-plan.create');
+Route::post('/register-plan/cadastro', 'RegisterPlanController@register')->name('register-plan.register');
 // rota de registro
 
 Route::group(['prefix' => '/system', 'as' => 'system.'], function () {

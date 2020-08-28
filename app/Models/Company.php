@@ -9,7 +9,24 @@ class Company extends Model
 {
     use Uuid;
     protected $connection = 'system';
-    protected $fillable = ['name', 'connection', 'prefix'];
+    protected $fillable = [
+        'comp_name',
+        'comp_document',
+        'comp_currency',
+        'comp_country',
+        'comp_address',
+        'comp_phone',
+        'comp_whatsapp',
+        'comp_email',
+        'comp_username',
+        'comp_password',
+        'comp_language',
+        'comp_plan',
+        'comp_payed_at',
+        'comp_status',
+        'connection',
+        'prefix'
+    ];
 
     public $casts = [
         'id' => 'string'

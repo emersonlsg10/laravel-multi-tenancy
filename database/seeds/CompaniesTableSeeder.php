@@ -15,7 +15,7 @@ class CompaniesTableSeeder extends Seeder
     {
         foreach (range(1, 5) as $value) {
             Company::create([
-                'name' => "Company $value",
+                'comp_name' => "Company $value",
                 'database' => "tenant_".Str::random(16),
                 'prefix' => "company$value"
             ]);
