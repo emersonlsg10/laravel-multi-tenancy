@@ -16,19 +16,20 @@
 
 <div class="row" style="max-width: 95vw; display: flex; justify-content: center; margin-top: 30px">
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <div class="col-10">
         <div class="card">
             <div class="card-body">
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <div style="margin-bottom: 30px;display: flex; justify-content: space-between; align-items: center;">
                     <h2 class="card-title">Cadastro de Empresas</h2>
                 </div>

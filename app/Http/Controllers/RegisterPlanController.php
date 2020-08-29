@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\UserTenant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -67,7 +68,7 @@ class RegisterPlanController extends Controller
             'comp_whatsapp' => $request->comp_whatsapp,
             'comp_email' => $request->comp_email,
             'comp_username' => $request->comp_username,
-            'comp_password' => $request->comp_password,
+            'comp_password' => Hash::make($request->comp_password),
             'comp_language' => $request->comp_language,
             'comp_plan' => $request->comp_plan,
             'prefix' => $request->prefix,
@@ -100,15 +101,28 @@ class RegisterPlanController extends Controller
 
             $command = "company:create " . $comp->comp_id;
 
-            // Artisan::call('tenant:create', 'comp_id' => $comp->comp_id );
-
             Artisan::call($command);
-            // $command = new Commands;
-            // $command->createTenant();
+
+            $payload = [
+                'name' => $request->comp_name,
+                'email' => $request->comp_email,
+                'user_type' => 1,
+                'password' => Hash::make($request->comp_password),
+            ];
+
+            $user = UserTenant::where('id_user', 1)
+                ->update($payload);
+
+            //se tudo ocorrer bem, atualiza e volta para o perfil
+            if ($user) {
+                return redirect()
+                    ->route('register-plan.create', ['plan' => $planName])
+                    ->with('success', "Sucesso ao cadastrar!");
+            }
 
             return redirect()
                 ->route('register-plan.create', ['plan' => $planName])
-                ->with('success', "Sucesso ao cadastrar!");
+                ->with('success', "Sucesso ao cadastrar, entre em contato com o suporte para receber seu dados de login!");
         } else {
             return redirect()
                 ->route('register-plan.create', ['plan' => $planName])
