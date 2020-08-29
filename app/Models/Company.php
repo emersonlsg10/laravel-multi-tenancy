@@ -25,6 +25,7 @@ class Company extends Model
         'comp_payed_at',
         'comp_status',
         'connection',
+        'database',
         'prefix'
     ];
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Console\Commands;
+use Artisan;
 
 class RegisterPlanController extends Controller
 {
@@ -31,11 +32,27 @@ class RegisterPlanController extends Controller
      */
     public function register(Request $request)
     {
+
+        switch ($request->comp_plan) {
+            case 1:
+                $planName = "mensal";
+                break;
+            case 2:
+                $planName = "semestral";
+                break;
+            case 4:
+                $planName = "anual";
+                break;
+            default:
+                $planName = "mensal";
+        };
+
+
         // confere se as senhas são iguais
         if ($request->comp_password !== $request->confirm_password) {
             //se der alguma falha, volta para a home com msg de falha
             return redirect()
-                ->route('register-plan.create')
+                ->route('register-plan.create', ['plan' => $planName])
                 ->with('error', 'As senhas não conferem!');
         }
 
@@ -70,23 +87,31 @@ class RegisterPlanController extends Controller
             'comp_password' => ['required', 'string', 'min:3'],
             'comp_language' => ['required', 'string', 'min:3'],
             'comp_plan' => ['required', 'numeric'],
-            'prefix' => ['required', 'string', 'min:3'],
-            'database' => ['required', 'string', 'min:3'],
+            'prefix' => ['required', 'unique:companies', 'string', 'min:3'],
+            'database' => ['string', 'min:3'],
         ]);
-        $gift = Company::create($payload);
 
-        if ($gift->save()) {
+        $company = Company::create($payload);
+
+        if ($company->save()) {
 
 
+            $comp = Company::where('prefix', $request->prefix)->first();
+
+            $command = "company:create " . $comp->comp_id;
+
+            // Artisan::call('tenant:create', 'comp_id' => $comp->comp_id );
+
+            Artisan::call($command);
             // $command = new Commands;
             // $command->createTenant();
 
             return redirect()
-                ->route('register-plan.create')
+                ->route('register-plan.create', ['plan' => $planName])
                 ->with('success', "Sucesso ao cadastrar!");
         } else {
             return redirect()
-                ->route('register-plan.create')
+                ->route('register-plan.create', ['plan' => $planName])
                 ->with('error', 'Falha ao cadastrar!!');
         }
     }
