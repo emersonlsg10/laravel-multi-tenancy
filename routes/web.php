@@ -26,6 +26,10 @@ Route::get('/register-plan/{plan}', 'RegisterPlanController@create')->name('regi
 Route::post('/register-plan/cadastro', 'RegisterPlanController@register')->name('register-plan.register');
 // rota de registro
 
+// rota de contato
+Route::post('/register-contact/cadastro', 'ContactController@register')->name('register-contact.register');
+// rota de contato
+
 Route::group(['prefix' => '/system', 'as' => 'system.'], function () {
     Auth::routes();
 

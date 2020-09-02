@@ -25,6 +25,7 @@ class RegisterPlanController extends Controller
     public function create(Request $request)
     {
         $plan = $request->plan;
+
         return view('companies-register.create', compact('plan'));
     }
 
@@ -71,6 +72,7 @@ class RegisterPlanController extends Controller
             'comp_password' => Hash::make($request->comp_password),
             'comp_language' => $request->comp_language,
             'comp_plan' => $request->comp_plan,
+            'comp_status' => 2,
             'prefix' => $request->prefix,
             'database' => $database,
         ];
@@ -88,6 +90,7 @@ class RegisterPlanController extends Controller
             'comp_password' => ['required', 'string', 'min:3'],
             'comp_language' => ['required', 'string', 'min:3'],
             'comp_plan' => ['required', 'numeric'],
+            'comp_status' => ['numeric'],
             'prefix' => ['required', 'unique:companies', 'string', 'min:3'],
             'database' => ['string', 'min:3'],
         ]);
@@ -115,9 +118,7 @@ class RegisterPlanController extends Controller
 
             //se tudo ocorrer bem, atualiza e volta para o perfil
             if ($user) {
-                return redirect()
-                    ->route('register-plan.create', ['plan' => $planName])
-                    ->with('success', "Sucesso ao cadastrar!");
+                return redirect(url("/" . $request->prefix . "/login"));
             }
 
             return redirect()
