@@ -3,7 +3,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="{{url('index')}}" class="logo logo-dark">
+                <a href="{{ route('tenant.index', ['prefix' => \Request::route('prefix')]) }}" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ URL::asset('/assets/images/logo-sm-dark.png')}}" alt="" height="22">
                     </span>
@@ -12,12 +12,12 @@
                     </span>
                 </a>
 
-                <a href="{{url('index')}}" class="logo logo-light">
+                <a href="{{ route('tenant.index', ['prefix' => \Request::route('prefix')]) }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ URL::asset('/assets/images/logo-sm-light.png')}}" alt="" height="22">
+                        <img src="{{ URL::asset('/assets/images/logo-aisten.png')}}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ URL::asset('/assets/images/logo-light.png')}}" alt="" height="20">
+                        <img src="{{ URL::asset('/assets/images/logo-aisten.png')}}" alt="" height="30">
                     </span>
                 </a>
             </div>
@@ -34,7 +34,7 @@
                 </div>
             </form>
 
-            <div class="dropdown dropdown-mega d-none d-lg-block ml-2">
+            <!-- <div class="dropdown dropdown-mega d-none d-lg-block ml-2">
                 <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     @lang('translation.Mega_Menu')
                     <i class="mdi mdi-chevron-down"></i>
@@ -163,7 +163,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="d-flex">
@@ -395,11 +395,11 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block">
+            <!-- <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                     <i class="ri-settings-2-line"></i>
                 </button>
-            </div>
+            </div> -->
 
         </div>
     </div>
