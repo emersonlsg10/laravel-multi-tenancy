@@ -49,10 +49,8 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         // Route::name('home')->get('home', function () {
         //     return view('tenant.home');
         // });
-
-        Route::name('index')->get('index', function () {
-            return view('tenant.index');
-        });
+        Route::get('index', 'HomeController@index')->name('index');
+        Route::get('calendar', 'HomeController@calendar')->name('calendar');
 
         // rota de users
         Route::resource('users', 'UserController');

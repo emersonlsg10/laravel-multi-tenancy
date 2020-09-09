@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Account;
+use App\Models\Shopping;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/');
+        $accounts = Account::where('status', 1)
+            ->get();
+
+        $totalAccounts = 0;
+        foreach ($accounts as $account) {
+            $totalAccounts += floatval($account->value);
+        }
+
+        $totalAccounts = number_format($totalAccounts, 2, ',', '.');
+
+        return view('tenant.index', compact('totalAccounts'));
+    }
+
+    public function calendar()
+    {
+        $shoppings = Shopping::all();
+
+        return view('calendar', compact('shoppings'));
     }
 }

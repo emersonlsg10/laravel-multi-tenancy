@@ -22,7 +22,7 @@ return [
   "Search"=> "Search", 
   "Menu"=> "Menu",
   "Dashboard"=> "Dashboard",
-  "Calendar"=> "Calendar",
+  "Calendar"=> "Calendário",
   "Chat"=> "Chat",
   "Ecommerce"=> "Ecommerce",
   "Products"=> "Products",
