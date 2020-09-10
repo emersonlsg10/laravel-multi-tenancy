@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Account;
+use App\Models\Receipt;
 use App\Models\Shopping;
 
 class HomeController extends Controller
@@ -35,7 +36,17 @@ class HomeController extends Controller
 
         $totalAccounts = number_format($totalAccounts, 2, ',', '.');
 
-        return view('tenant.index', compact('totalAccounts'));
+        $receipts = Receipt::where('status', 1)
+            ->get();
+
+        $totalReceipts = 0;
+        foreach ($receipts as $receipt) {
+            $totalReceipts += floatval($receipt->value);
+        }
+
+        $totalReceipts = number_format($totalReceipts, 2, ',', '.');
+
+        return view('tenant.index', compact('totalAccounts', 'totalReceipts'));
     }
 
     public function calendar()

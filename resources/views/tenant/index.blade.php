@@ -42,7 +42,7 @@
                     <div class="media">
                         <div class="media-body overflow-hidden">
                             <p class="text-truncate font-size-14 mb-2">Contas a receber</p>
-                            <h4 class="mb-0">$ 38452</h4>
+                            <h4 class="mb-0">$ {{$totalReceipts}}</h4>
                         </div>
                         <div class="text-primary">
                             <i class="ri-store-2-line font-size-24"></i>

@@ -13,6 +13,7 @@ return [
   "Orçamento"=> "Orçamento",
   "Vestuário"=> "Vestuário",
   "Contas"=> "Contas a pagar",
+  "ContasReceber"=> "Contas a receber",
   "Compras"=> "Compras",
   "Caixa"=> "Caixa",
   "Pessoas"=> "Pessoas",

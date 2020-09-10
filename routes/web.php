@@ -184,6 +184,17 @@ Route::group(['prefix' => '/{prefix}', 'as' => 'tenant.'], function () {
         Route::get('/accounts/deletar/{id}', 'AccountController@delete')->name('accounts.delete');
         // rota de contas a pagar
 
+        // rota de contas a receber
+        Route::resource('receipts', 'ReceiptController');
+        Route::resource('receipts/cadastro', 'ReceiptController@create');
+        Route::post('/receipts/cadastro', 'ReceiptController@register')->name('receipts.register');
+
+        Route::get('/receipts/editar/{id}', 'ReceiptController@edit')->name('receipts.edit');
+        Route::resource('receipts/update', 'ReceiptController@update');
+        Route::post('/receipts/update', 'ReceiptController@updateRegister')->name('receipts.updateRegister');
+        Route::get('/receipts/deletar/{id}', 'ReceiptController@delete')->name('receipts.delete');
+        // rota de contas a receber
+
         // rota de compra
         Route::resource('shoppings', 'ShoppingController');
         Route::resource('shoppings/cadastro', 'ShoppingController@create');
