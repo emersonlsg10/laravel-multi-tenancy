@@ -2,7 +2,7 @@
 
 # With command that generates a new database and a new url when a company registers.
 
-# INSTAL
+# INSTALL
 
 1 - First you muste create a MySql Database with the credencials in .env arquive.
 
