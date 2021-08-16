@@ -4,9 +4,9 @@
 
 # INSTALL
 
-1 - First you muste create a MySql Database with the credencials in .env arquive.
+1 - First you must create a MySql Database with the credencials in .env arquive.
 
-2 - So now, you must instal de PHP Dependencies with composer install
+2 - So now, you must install the PHP Dependencies with composer install
 
 3 - Generate Key with Laravel Comand
 
